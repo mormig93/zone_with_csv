@@ -1,0 +1,18 @@
+{
+  "name": "sendToSocial",
+  "version": "1.0.0",
+  "description": "aplicacion para enviar contenido a telegram proveniente de un file csv",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "morillomig93",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "csv-parser": "^3.0.0",
+    "path": "^0.12.7",
+    "uuid": "^8.3.2"
+  }
+}
