@@ -22,7 +22,7 @@ const options = {
 }
 
 //time per each post
-const time_per_post = (5 * 60) * 1000
+const time_per_post = 300000
 
 //for store csv data
 const data_from_csv = [];
