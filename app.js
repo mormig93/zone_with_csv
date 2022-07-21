@@ -2,6 +2,9 @@ const axios = require("axios").default;
 const fs = require('fs');
 const path = require('path');
 const csv = require ('csv-parser');
+const express = require('express')
+const app = express()
+const port = 3000
 
 //for telegram bot api
 const tg_token = '5212294496:AAGcQF613aFdOXt-RJWi42ijsxSXBPtahdM'
@@ -90,11 +93,6 @@ function sendPost(type_post, text, img) {
         });
 }
 
-
-
-
-
-
-
-
-
+app.listen(port, () => {
+    console.log(`App listen in port ${port}`)
+})
