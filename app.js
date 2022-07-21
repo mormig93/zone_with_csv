@@ -25,7 +25,7 @@ const options = {
 }
 
 //time per each post
-const time_per_post = 1000
+const time_per_post = (5) * 1000
 
 //for store csv data
 const data_from_csv = [];
@@ -92,6 +92,7 @@ function sendPost(type_post, text, img) {
             console.log('error');
         });
 }
+
 
 app.listen(port, () => {
     console.log(`App listen in port ${port}`)
