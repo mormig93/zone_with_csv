@@ -6,6 +6,10 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.listen(port, () => {
+    console.log(`App listen in port ${port}`)
+})
+
 //for telegram bot api
 const tg_token = '5212294496:AAGcQF613aFdOXt-RJWi42ijsxSXBPtahdM'
 const tg_chatId = '@synctest'
@@ -25,7 +29,7 @@ const options = {
 }
 
 //time per each post
-const time_per_post = (5) * 1000
+const time_per_post = (3) * 1000
 
 //for store csv data
 const data_from_csv = [];
@@ -38,11 +42,11 @@ fs.createReadStream(path.resolve(__dirname, 'data', 'items.csv'))
     .on('end', () => {
         let position = 1
         const processID = setInterval(function () {
-            if (data_from_csv[position] === undefined) {
-                clearInterval(processID)
-            } else {
+            if (data_from_csv[position]) {
                 shareToSocial(data_from_csv[position])
                 position++
+            } else {
+                clearInterval(processID)
             }
         }, time_per_post);
     });
@@ -92,8 +96,3 @@ function sendPost(type_post, text, img) {
             console.log('error');
         });
 }
-
-
-app.listen(port, () => {
-    console.log(`App listen in port ${port}`)
-})
